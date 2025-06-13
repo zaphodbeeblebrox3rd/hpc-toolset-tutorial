@@ -1,0 +1,21 @@
+# Cache Control for Theme Assets
+<IfModule mod_headers.c>
+    # For CSS files, allow caching but check for changes every hour
+    <FilesMatch "\.(css)$">
+        Header set Cache-Control "public, max-age=3600, must-revalidate"
+        Header set ETag "W/\"hpc-coop-v1.1\""
+    </FilesMatch>
+    
+    # For images, allow longer caching since they change less frequently
+    <FilesMatch "\.(png|jpg|jpeg|gif|svg|ico)$">
+        Header set Cache-Control "public, max-age=2592000"
+        Header set ETag "W/\"hpc-coop-images-v1.0\""
+    </FilesMatch>
+</IfModule>
+
+# Enable compression for better performance
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE text/html
+</IfModule> 

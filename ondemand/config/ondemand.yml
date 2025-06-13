@@ -21,7 +21,7 @@ dashboard_layout:
 
 profiles:
   chemistry:
-    brand_bg_color: '#3b8aa1'
+    brand_bg_color: '#8B0000'
 
     nav_bar:
       - files
@@ -40,9 +40,9 @@ profiles:
         links:
           - 'sys/jupyter'
 
-      - title: "Chemistry Notes"
+      - title: "SSD Notes"
         icon: "fa://book-open"
-        page: "chemistry_notes"
+        page: "ssd_notes"
 
     help_bar:  
       - help
@@ -57,7 +57,7 @@ profiles:
         - columns:
           - width: 8
             widgets:
-              - chemistry_notes
+              - ssd_notes
           - width: 4
             widgets:
               - xdmod_widget_job_efficiency
@@ -75,11 +75,11 @@ profile_links:
     title: "Default"
     icon:  "fas://user"
   - profile: chemistry
-    icon: "fas://radiation-alt"
-    title: "Chemistry"
+    icon: "fas://users"
+    title: "Social Sciences"
 
 custom_pages:
-  chemistry_notes:
+  ssd_notes:
     rows:
       - columns:
         - width: 6
@@ -87,4 +87,4 @@ custom_pages:
             - welcome
             - custom_page_description
         - width: 6
-          widgets: chemistry_notes
+          widgets: ssd_notes
