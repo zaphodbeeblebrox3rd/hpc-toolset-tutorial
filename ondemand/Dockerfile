@@ -1,7 +1,21 @@
 ARG HPCTS_VERSION=latest
 
 FROM --platform=linux/amd64 ubccr/hpcts:slurm-${HPCTS_VERSION} as stage-amd64
-RUN dnf install -y https://yum.osc.edu/ondemand/3.0/ondemand-release-web-3.0-1.noarch.rpm
+# Install rclone binary from official download (rclone not in EPEL 8; ondemand RPM Requires: rclone)
+RUN dnf install -y curl unzip \
+    && curl -sL -o /tmp/rclone.zip https://downloads.rclone.org/rclone-current-linux-amd64.zip \
+    && unzip -q -d /tmp /tmp/rclone.zip \
+    && cp /tmp/rclone-*-linux-amd64/rclone /usr/bin/ \
+    && chmod 755 /usr/bin/rclone \
+    && rm -rf /tmp/rclone.zip /tmp/rclone-*-linux-amd64
+# Dummy rclone RPM so dnf dependency is satisfied; then install ondemand
+RUN dnf install -y https://yum.osc.edu/ondemand/3.0/ondemand-release-web-3.0-1.noarch.rpm \
+    && dnf install -y rpm-build \
+    && mkdir -p /tmp/rclone-build/{BUILD,RPMS,SOURCES,SPECS,SRPMS} \
+    && echo -e 'Summary: Satisfies ondemand rclone dependency\nName: rclone\nVersion: 1.0\nRelease: 1\nLicense: MIT\n%description\nDummy package.\n%install\nmkdir -p %{buildroot}/usr/share/rclone\ntouch %{buildroot}/usr/share/rclone/.placeholder\n%files\n/usr/share/rclone/.placeholder\n' > /tmp/rclone.spec \
+    && rpmbuild -bb --define '_topdir /tmp/rclone-build' /tmp/rclone.spec \
+    && rpm -ivh /tmp/rclone-build/RPMS/*/rclone-1.0-1.*.rpm \
+    && rm -rf /tmp/rclone.spec /tmp/rclone-build
 RUN dnf install -y netcat ondemand ondemand-dex libyaml-devel
 RUN gem install rdoc -v 6.3.3
 
@@ -18,9 +32,7 @@ RUN /build/install-passenger-arm64.sh
 RUN /build/install-ood-arm64.sh
 RUN rm -rf /build
 
-ARG TARGETARCH
-
-FROM stage-${TARGETARCH} as final
+FROM stage-amd64 AS final
 
 COPY . /build
 RUN /build/install.sh && rm -rf /build

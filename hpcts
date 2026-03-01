@@ -12,8 +12,11 @@ start() {
     log_info "Fetching latest HPC Toolset Images.."
     docker compose pull
 
+    log_info "Building OnDemand image (includes SSL cert fix for dashboard).."
+    docker compose build ondemand
+
     log_info "Starting HPC Toolset Cluster.."
-    docker compose up -d --no-build
+    docker compose up -d
 
     log_info "Coldfront URL: https://localhost:2443"
     log_info "OnDemand URL: https://localhost:3443"
