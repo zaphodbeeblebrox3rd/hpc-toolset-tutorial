@@ -71,7 +71,7 @@ EOF
 cat > /etc/sssd/sssd.conf <<EOF
 [domain/default]
 reconnection_retries = 10
-offline_timeout = 1
+offline_timeout = 60
 debug_level = 2
 autofs_provider = ldap
 ldap_schema = rfc2307bis
@@ -100,6 +100,7 @@ homedir_substring = /home
 [pam]
 reconnection_retries = 10
 debug_level = 2
+offline_credentials_expiration = 2
 EOF
 
 chmod 600 /etc/sssd/sssd.conf

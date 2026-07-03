@@ -6,6 +6,9 @@
 - Cluster login: `ssh -p 6222 hpcadmin@localhost`
 - Support: helpdesk@chicagobooth.edu
 
+#### Companion Video Introduction
+https://www.youtube.com/watch?v=xfPBTd-ym9U&list=WL&index=4&t=1599s
+
 #### Tutorial links
 
 - Accounts and passwords: see `docs/applications.md` in this repository
