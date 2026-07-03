@@ -33,6 +33,8 @@ then
             /xdmod/setup.sh
         fi
         /srv/xdmod/scripts/xdmod-setup-sso.sh
+        echo "---> Refreshing XDMoD job and performance data..."
+        sudo -u xdmod /srv/xdmod/scripts/shred-ingest-aggregate-all.sh
     else
         #------------------------
         # Run xdmod-setup

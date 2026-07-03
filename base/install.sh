@@ -152,7 +152,7 @@ openssl genrsa -out /etc/pki/tls/ca.key 4096
 openssl req -new -x509 -days 3650 -sha256 -key /etc/pki/tls/ca.key -extensions v3_ca -out /etc/pki/tls/ca.crt -subj "/CN=fake-ca"
 # Generate certificate request
 openssl genrsa -out /etc/pki/tls/private/localhost.key 2048
-openssl req -new -sha256 -key /etc/pki/tls/private/localhost.key -out /etc/pki/tls/certs/localhost.csr -subj "/C=US/ST=NY/O=HPC Tutorial/CN=localhost"
+openssl req -new -sha256 -key /etc/pki/tls/private/localhost.key -out /etc/pki/tls/certs/localhost.csr -subj "/C=US/ST=IL/O=Chicago Booth/CN=localhost"
 # Config for signing cert
 cat > /etc/pki/tls/localhost.ext << EOF
 authorityKeyIdentifier=keyid,issuer
@@ -164,7 +164,7 @@ EOF
 # Sign cert request and generate cert
 openssl x509 -req -CA /etc/pki/tls/ca.crt -CAkey /etc/pki/tls/ca.key -CAcreateserial \
   -in /etc/pki/tls/certs/localhost.csr -out /etc/pki/tls/certs/localhost.crt \
-  -days 365 -sha256 -extfile /etc/pki/tls/localhost.ext
+  -days 3650 -sha256 -extfile /etc/pki/tls/localhost.ext
 # Add CA to trust store
 cp /etc/pki/tls/ca.crt /etc/pki/ca-trust/source/anchors/
 update-ca-trust extract

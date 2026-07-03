@@ -1,0 +1,4 @@
+---
+# PUN environment for all OnDemand apps (dashboard widgets, job composer, etc.)
+pun_custom_env:
+  OOD_XDMOD_HOST: "https://localhost:4443"

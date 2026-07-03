@@ -3,3 +3,4 @@ MOTD_PATH="/etc/motd"
 MOTD_FORMAT="markdown"
 OOD_BC_DYNAMIC_JS=1
 OOD_XDMOD_HOST="https://localhost:4443"
+OOD_BRAND_BG_COLOR="#800000"

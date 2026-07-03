@@ -19,6 +19,11 @@ echo "DEFAULT_SSHHOST=frontend" > /etc/ood/config/apps/shell/env
 echo "OOD_DEFAULT_SSHHOST=frontend" >> /etc/ood/config/apps/shell/env
 echo "OOD_SSHHOST_ALLOWLIST=ondemand:cpn01:cpn02" >> /etc/ood/config/apps/shell/env
 
+tee /etc/ood/config/nginx_stage.yml <<'NGINX_STAGE_EOF'
+---
+pun_custom_env:
+  OOD_XDMOD_HOST: "https://localhost:4443"
+NGINX_STAGE_EOF
 
 log_info "Configuring Ondemand ood_portal.yml .."
 
@@ -70,14 +75,12 @@ dex:
           nameAttr: cn
   # This is the default, but illustrating how to change
   frontend:
-    theme: ondemand
+    theme: chicago-booth
 EOF
 
 log_info "Generating new httpd24 and dex configs.."
 /opt/ood/ood-portal-generator/sbin/update_ood_portal
-
-log_info "Adding new theme to dex"
-sed -i "s/theme: ondemand/theme: hpc-coop/g" /etc/ood/dex/config.yaml
+/opt/ood/nginx_stage/sbin/update_nginx_stage
 
 dnf clean all
 rm -rf /var/cache/dnf

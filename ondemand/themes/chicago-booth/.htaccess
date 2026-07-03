@@ -1,0 +1,18 @@
+# Cache Control for Theme Assets
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css)$">
+        Header set Cache-Control "public, max-age=3600, must-revalidate"
+        Header set ETag "W/\"chicago-booth-v1.0\""
+    </FilesMatch>
+
+    <FilesMatch "\.(png|jpg|jpeg|gif|svg|ico)$">
+        Header set Cache-Control "public, max-age=2592000"
+        Header set ETag "W/\"chicago-booth-images-v1.0\""
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE text/html
+</IfModule>

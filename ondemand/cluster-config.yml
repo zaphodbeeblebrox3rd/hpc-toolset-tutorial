@@ -1,7 +1,7 @@
 ---
 v2:
   metadata:
-    title: "HPC Cluster"
+    title: "Chicago Booth HPC"
   login:
     host: "frontend"
   job:

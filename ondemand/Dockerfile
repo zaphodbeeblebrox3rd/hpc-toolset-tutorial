@@ -32,7 +32,8 @@ COPY motd /etc/motd
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY notebook_data /data/notebook_data
 COPY initializers /etc/ood/config/apps/dashboard/initializers
-COPY themes/hpc-coop /usr/share/ondemand-dex/web/themes/hpc-coop
+COPY themes/chicago-booth /usr/share/ondemand-dex/web/themes/chicago-booth
+COPY config/nginx_stage.yml /etc/ood/config/nginx_stage.yml
 COPY config/dashboard/env /etc/ood/config/apps/dashboard/env
 COPY config/ondemand.yml /etc/ood/config/ondemand.d/ondemand.yml
 COPY config/dashboard/widgets /etc/ood/config/apps/dashboard/views/widgets

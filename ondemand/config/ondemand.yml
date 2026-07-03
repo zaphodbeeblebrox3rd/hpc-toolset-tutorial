@@ -1,5 +1,4 @@
 
-
 dashboard_layout:
   rows:
     - columns:
@@ -20,31 +19,31 @@ dashboard_layout:
           - xdmod_widget_jobs
 
 profiles:
-  chemistry:
-    brand_bg_color: '#8B0000'
+  booth_research:
+    brand_bg_color: '#800000'
 
     nav_bar:
       - files
       - clusters
-      - title: 'Custom Link Menu'
+      - title: 'Resources'
         links:
-          - title: "Report a bug"
-            icon: "fa://bug"
-            url: "https://www.osc.edu/"
-          - title: "See a Report"
+          - title: "Chicago Booth IT"
+            icon: "fa://life-ring"
+            url: "https://www.chicagobooth.edu/"
+          - title: "Research Computing"
             icon: "fa://chart-bar"
-            url: "https://www.osc.edu/"
+            url: "https://www.chicagobooth.edu/"
       - my interactive sessions
       - title: 'Jupyter'
         icon: 'fa://star'
         links:
           - 'sys/jupyter'
 
-      - title: "SSD Notes"
+      - title: "Research Notes"
         icon: "fa://book-open"
-        page: "ssd_notes"
+        page: "booth_research_notes"
 
-    help_bar:  
+    help_bar:
       - help
 
     dashboard_layout:
@@ -57,7 +56,7 @@ profiles:
         - columns:
           - width: 8
             widgets:
-              - ssd_notes
+              - booth_research_notes
           - width: 4
             widgets:
               - xdmod_widget_job_efficiency
@@ -74,12 +73,12 @@ profile_links:
   - profile: ""
     title: "Default"
     icon:  "fas://user"
-  - profile: chemistry
-    icon: "fas://users"
-    title: "Social Sciences"
+  - profile: booth_research
+    icon: "fas://flask"
+    title: "Research Computing"
 
 custom_pages:
-  ssd_notes:
+  booth_research_notes:
     rows:
       - columns:
         - width: 6
@@ -87,4 +86,4 @@ custom_pages:
             - welcome
             - custom_page_description
         - width: 6
-          widgets: ssd_notes
+          widgets: booth_research_notes

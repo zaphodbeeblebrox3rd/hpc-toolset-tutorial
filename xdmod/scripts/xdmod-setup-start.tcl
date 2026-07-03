@@ -16,7 +16,7 @@ spawn "xdmod-setup"
 
 selectMenuOption 1
 answerQuestion {Site Address} https://localhost:4443/
-provideInput {Email Address:} ccr-xdmod-help@buffalo.edu
+provideInput {Email Address:} helpdesk@chicagobooth.edu
 provideInput {Chromium Path:} /usr/lib64/chromium-browser/headless_shell
 provideInput {Center Logo Path:} /srv/xdmod/small-logo.png
 provideInput {Center Logo Width:} 354
@@ -42,8 +42,8 @@ confirmFileWrite yes
 enterToContinue
 
 selectMenuOption 3
-provideInput {Organization Name:} Tutorial
-provideInput {Organization Abbreviation:} hpcts
+provideInput {Organization Name:} Chicago Booth
+provideInput {Organization Abbreviation:} booth
 confirmFileWrite yes
 enterToContinue
 

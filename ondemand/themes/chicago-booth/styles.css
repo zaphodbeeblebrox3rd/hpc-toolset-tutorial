@@ -1,0 +1,147 @@
+/* Chicago Booth Theme v1.0 */
+
+.card-body .row {
+  display: none;
+}
+
+.ood-nav-logo {
+  max-height: 70px;
+  max-width: 997px;
+  width: 100%;
+}
+
+.theme-body {
+  background-color: #f5f5f2;
+  color: #333333;
+  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+}
+
+.theme-navbar {
+  background-color: #800000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  height: 70px;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+.theme-navbar__logo-wrap {
+  display: inline-block;
+  height: 100%;
+  overflow: hidden;
+  padding: 5px 0px;
+}
+
+.theme-navbar__logo {
+  max-height: 70px;
+  max-width: 997px;
+  width: 100%;
+}
+
+.theme-heading {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  margin-top: 0;
+  color: #800000;
+}
+
+.theme-panel {
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 30px;
+  border-top: 3px solid #800000;
+}
+
+.theme-btn-provider {
+  background-color: #fff;
+  color: #800000;
+  min-width: 250px;
+  border: 1px solid #800000;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.theme-btn-provider:hover {
+  background-color: #800000;
+  color: #fff;
+}
+
+.theme-btn--primary {
+  background-color: #800000;
+  border: none;
+  color: #fff;
+  min-width: 200px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.theme-btn--primary:hover {
+  background-color: #660000;
+  color: #fff;
+}
+
+.theme-btn--success {
+  background-color: #767676;
+  color: #fff;
+  width: 250px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.theme-btn--success:hover {
+  background-color: #5c5c5c;
+}
+
+.theme-form-row {
+  display: block;
+  margin: 20px auto;
+}
+
+.theme-form-input {
+  border-radius: 4px;
+  border: 1px solid #D6D6CE;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  color: #333333;
+  display: block;
+  font-size: 14px;
+  height: 40px;
+  line-height: 1.5;
+  margin: auto;
+  padding: 8px 12px;
+  width: 250px;
+  transition: all 0.2s ease;
+}
+
+.theme-form-input:focus,
+.theme-form-input:active {
+  border-color: #800000;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.15);
+}
+
+.theme-form-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 4px auto;
+  position: relative;
+  text-align: left;
+  width: 250px;
+  color: #767676;
+}
+
+.theme-link-back {
+  margin-top: 4px;
+  color: #800000;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.theme-link-back:hover {
+  color: #660000;
+  text-decoration: underline;
+}

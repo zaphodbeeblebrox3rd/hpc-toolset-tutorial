@@ -1,5 +1,5 @@
 ---
-title: "HPC Desktop"
+title: "Chicago Booth Desktop"
 cluster: "hpc"
 attributes:
   desktop: "xfce"
